@@ -5,7 +5,8 @@
 	"scripts": {
 		"dev": "next dev",
 		"build": "next build",
-		"start": "next start"
+		"start": "next start",
+		"lint": "biome check --apply ./"
 	},
 	"dependencies": {
 		"@biomejs/biome": "^1.7.1",
