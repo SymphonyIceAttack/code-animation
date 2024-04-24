@@ -1,4 +1,4 @@
-# Standard Readme
+# Code Animation Readme
 
 [![code-animation compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/SymphonyIceAttack/code-animation)
 
@@ -32,8 +32,6 @@ http://localhost:3000
 ```
 
 
-
-
 ## Maintainers
 
 
@@ -45,4 +43,4 @@ This project exists thanks to all the people who contribute.
 
 ## License
 
-[MIT](LICENSE) © Richard Littauer
+[MIT](LICENSE) © SymphonyIceAttack
