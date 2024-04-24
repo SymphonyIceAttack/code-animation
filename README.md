@@ -1,7 +1,8 @@
 # Code Animation Readme
-
-[![code-animation compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/SymphonyIceAttack/code-animation)
-
+![prs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+![MIT License](https://img.shields.io/badge/license-MIT-blue)
+![React](https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=61DAFB)
+![tailwindcss](https://img.shields.io/badge/tailwindcss-38B2AC.svg?logo=tailwind-css&logoColor=white)
 A standard style for README files
 
 
