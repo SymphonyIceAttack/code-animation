@@ -3,7 +3,6 @@
 ![MIT License](https://img.shields.io/badge/license-MIT-blue)
 ![React](https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=61DAFB)
 ![tailwindcss](https://img.shields.io/badge/tailwindcss-38B2AC.svg?logo=tailwind-css&logoColor=white)
-A standard style for README files
 
 
 ## Table of Contents
