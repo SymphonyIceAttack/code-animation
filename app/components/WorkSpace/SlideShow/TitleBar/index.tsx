@@ -1,6 +1,6 @@
 import React from "react";
 
-const TopBar = () => {
+const TitleBar = () => {
 	return (
 		<div className="relative flex items-center justify-center px-2 py-4">
 			<div className="absolute left-0 p-4 flex gap-2">
@@ -86,4 +86,4 @@ const TopBar = () => {
 	);
 };
 
-export default TopBar;
+export default TitleBar;
