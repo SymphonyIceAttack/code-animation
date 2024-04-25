@@ -1,13 +1,13 @@
 "use client";
 
 import Content from "./components/Content";
-import SideBar from "./components/SideBar";
-import { useControlList } from "./hooks/use-control-list";
+import Navigation from "./components/Navigation";
+import { useNavigationList } from "./hooks/use-navigation-list";
 export default function Home() {
-	const [controlList, setcontrolList] = useControlList();
+	const [navigationList, setNavigationList] = useNavigationList();
 	return (
 		<main className="h-screen w-full flex">
-			<SideBar controlList={controlList} />
+			<Navigation navigationList={navigationList} />
 			<Content />
 		</main>
 	);

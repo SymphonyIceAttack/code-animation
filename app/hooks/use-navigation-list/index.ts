@@ -1,11 +1,11 @@
-import type { controlType } from "@/app/types/controlType";
+import type { navigationType } from "@/app/types/navigationType";
 import { useState } from "react";
 
-export const useControlList = (): [
-	typeof controlList,
-	typeof setcontrolList,
+export const useNavigationList = (): [
+	typeof navigationList,
+	typeof setNavigationList,
 ] => {
-	const [controlList, setcontrolList] = useState<controlType[]>([
+	const [navigationList, setNavigationList] = useState<navigationType[]>([
 		{
 			id: "1",
 			index: 1,
@@ -15,5 +15,5 @@ export const useControlList = (): [
 		},
 	]);
 
-	return [controlList, setcontrolList];
+	return [navigationList, setNavigationList];
 };

@@ -1,9 +1,9 @@
-import type { controlType } from "@/app/types/controlType";
+import type { navigationType } from "@/app/types/navigationType";
 import React from "react";
 interface Props {
-	controlItem: controlType;
+	navigationItem: navigationType;
 }
-const ControlItem = ({ controlItem }: Props) => {
+const NavigationItem = ({ navigationItem }: Props) => {
 	return (
 		<div className="relative select-none transform-none w-full  group">
 			<div className="absolute z-10 hidden group-hover:block top-1.5 right-1.5 text-white bg-zinc-600 px-2 py-1 rounded-md">
@@ -27,20 +27,20 @@ const ControlItem = ({ controlItem }: Props) => {
 			</div>
 			<div
 				className={`pointer-events-none bg-[#121212]  rounded-lg p-1 ${
-					controlItem.isActive ? "ring-blue-500 ring-2" : ""
+					navigationItem.isActive ? "ring-blue-500 ring-2" : ""
 				}`}
 			>
 				<img
 					className="object-cover w-full h-full "
 					alt=""
-					src={controlItem.image}
+					src={navigationItem.image}
 				/>
 			</div>
 			<span className="absolute z-10 font-[code] text-[10px] left-1 bottom-1 text-white">
-				{controlItem.index}
+				{navigationItem.index}
 			</span>
 		</div>
 	);
 };
 
-export default ControlItem;
+export default NavigationItem;
