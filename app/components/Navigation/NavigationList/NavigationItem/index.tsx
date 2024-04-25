@@ -1,11 +1,26 @@
 import type { navigationType } from "@/app/types/navigationType";
+import { useSortable } from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import React from "react";
 interface Props {
 	navigationItem: navigationType;
 }
 const NavigationItem = ({ navigationItem }: Props) => {
+	const { attributes, listeners, setNodeRef, transform, transition } =
+		useSortable({ id: navigationItem.id });
+	const style = {
+		transform: CSS.Transform.toString(transform),
+		transition,
+	};
+
 	return (
-		<div className="relative select-none transform-none w-full  group">
+		<div
+			className="relative select-none transform-none w-full  group"
+			ref={setNodeRef}
+			style={style}
+			{...attributes}
+			{...listeners}
+		>
 			<div className="absolute z-10 hidden group-hover:block top-1.5 right-1.5 text-white bg-zinc-600 px-2 py-1 rounded-md">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"

@@ -6,6 +6,7 @@ interface Props {
 }
 const NavigationList = ({
 	navigationList,
+
 	children,
 }: PropsWithChildren<Props>) => {
 	return (
