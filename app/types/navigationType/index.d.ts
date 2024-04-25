@@ -1,4 +1,4 @@
-export type controlType = {
+export type navigationType = {
 	id: string;
 	index: number;
 	image: string;
