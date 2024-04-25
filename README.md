@@ -1,9 +1,19 @@
-# Code Animation
+<h1 align="center">Welcome to Code Animation 👋</h1>
+<p align="center">
+ <a href="">
+    <img alt="prs" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" target="_blank" />
+  </a>
+ <a href="">
+    <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-blue" target="_blank" />
+  </a>
+ <a href="">
+    <img alt="React" src="https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=61DAFB" target="_blank" />
+  </a>
+ <a href="">
+    <img alt="tailwindcss" src="https://img.shields.io/badge/tailwindcss-38B2AC.svg?logo=tailwind-css&logoColor=white" target="_blank" />
+  </a>
+</p>
 
-![prs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
-![MIT License](https://img.shields.io/badge/license-MIT-blue)
-![React](https://img.shields.io/badge/React-20232a.svg?logo=react&logoColor=61DAFB)
-![tailwindcss](https://img.shields.io/badge/tailwindcss-38B2AC.svg?logo=tailwind-css&logoColor=white)
 
 
 ## Table of Contents
