@@ -1,28 +1,53 @@
+import type { navigationType } from "@/app/types/navigationType";
+import { langs } from "@uiw/codemirror-extensions-langs";
+import { dracula, draculaInit } from "@uiw/codemirror-theme-dracula";
+import CodeMirror, { EditorView } from "@uiw/react-codemirror";
 import React from "react";
-
-const HighLightCode = () => {
+interface Props {
+	navigationList: navigationType[];
+	handleCodeEdit: (code: string) => void;
+}
+const HighLightCode = ({ navigationList, handleCodeEdit }: Props) => {
 	return (
-		<div className="absolute inset-0">
-			<div className="relative aspect-video p-4">
-				<div className="h-full w-full relative text-white font-[code]">
-					<pre
-						className="text-base"
-						style={{
-							color: "#d6deeb",
-							backgroundColor: "rgba(0,0,0,0)",
-							fontFamily: "code",
-						}}
-					>
-						<div className="token-line" style={{ color: "#d6deeb" }}>
-							<span
-								className="token plain"
-								style={{ display: "inline-block" }}
-							/>
-						</div>
-					</pre>
-				</div>
-			</div>
-		</div>
+		<>
+			{navigationList.length !== 0 && (
+				<CodeMirror
+					theme={[
+						draculaInit({
+							settings: {
+								background: "transparent",
+								gutterBackground: "red",
+							},
+						}),
+						EditorView.theme({
+							"&": {
+								fontSize: "1rem",
+								lineHeight: "1.5rem",
+							},
+							"&.cm-editor.cm-focused": {
+								outline: "none",
+							},
+						}),
+					]}
+					basicSetup={{
+						lineNumbers: false,
+						foldGutter: false,
+						highlightActiveLine: false,
+						autocompletion: false,
+					}}
+					editable={true}
+					onChange={(e) => {
+						const lines = e.split(/\r\n|\r|\n/);
+						lines.length <= 16 && handleCodeEdit(e);
+					}}
+					value={
+						navigationList.filter((item) => item.isActive === true)[0].code
+					}
+					height="384px"
+					extensions={[langs.tsx()]}
+				/>
+			)}
+		</>
 	);
 };
 

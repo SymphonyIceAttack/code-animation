@@ -1,12 +1,17 @@
+import type { navigationType } from "@/app/types/navigationType";
 import React from "react";
 import HighLightCode from "./HighLightCode";
-import TextArea from "./TextArea";
-
-const CodeContent = () => {
+interface Props {
+	handleCodeEdit: (code: string) => void;
+	navigationList: navigationType[];
+}
+const CodeContent = ({ handleCodeEdit, navigationList }: Props) => {
 	return (
 		<div className="relative aspect-video p-4">
-			<TextArea />
-			<HighLightCode />
+			<HighLightCode
+				navigationList={navigationList}
+				handleCodeEdit={handleCodeEdit}
+			/>
 		</div>
 	);
 };

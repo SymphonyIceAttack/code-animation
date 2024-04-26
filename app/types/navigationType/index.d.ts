@@ -3,4 +3,5 @@ export type navigationType = {
 	index: number;
 	image: string;
 	isActive: boolean;
+	code: string;
 };
