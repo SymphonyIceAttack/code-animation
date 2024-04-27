@@ -1,5 +1,8 @@
 <h1 align="center">Welcome to Code Animation 👋</h1>
 <p align="center">
+ <img width="671" alt="截屏2024-04-27 17 32 02" src="https://github.com/SymphonyIceAttack/code-animation/assets/79434860/acc9d646-2f12-489a-b767-6b2e9bbe6bac">
+</p>
+<p align="center">
  <a href="">
     <img alt="prs" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" target="_blank" />
   </a>
