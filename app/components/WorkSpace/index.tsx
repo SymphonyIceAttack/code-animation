@@ -23,7 +23,10 @@ const WorkSpace = ({
 					navigationList={navigationList}
 					handleCodeEdit={handleCodeEdit}
 				/>
-				<OperateButtonList handlePreviewState={handlePreviewState} />
+				<OperateButtonList
+					isPreviewCode={isPreviewCode}
+					handlePreviewState={handlePreviewState}
+				/>
 			</div>
 		</div>
 	);
