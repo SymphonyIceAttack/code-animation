@@ -6,14 +6,24 @@ import TitleBar from "./TitleBar";
 interface Props {
 	handleCodeEdit: (code: string) => void;
 	navigationList: navigationType[];
+	isPreviewCode: boolean;
 }
-const SlideShow = ({ handleCodeEdit, navigationList }: Props) => {
+const SlideShow = ({
+	handleCodeEdit,
+	navigationList,
+	isPreviewCode,
+}: Props) => {
 	return (
 		<div className="relative isolate">
 			<Mask />
-			<div className="relative mx-auto bg-black/80 border border-zinc-800 rounded-lg shadow-2xl w-[48rem]">
+			<div
+				className={`relative mx-auto bg-black/80 border border-zinc-800 rounded-lg shadow-2xl w-[48rem] ${
+					isPreviewCode ? "ring-blue-500 ring-2" : ""
+				}`}
+			>
 				<TitleBar />
 				<CodeContent
+					isPreviewCode={isPreviewCode}
 					navigationList={navigationList}
 					handleCodeEdit={handleCodeEdit}
 				/>
