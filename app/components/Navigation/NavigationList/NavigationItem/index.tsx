@@ -53,16 +53,16 @@ const NavigationItem = ({
 				</svg>
 			</div>
 			<div
-				onKeyDown={() => {}}
-				onClick={() => {
+				onClick={(e) => {
 					handleActiveItem(navigationItem.id);
 				}}
-				className={`pointer-events-none bg-[#121212]  rounded-lg p-1 ${
+				onKeyDown={() => {}}
+				className={`relative  bg-[#121212]  rounded-lg p-1 ${
 					navigationItem.isActive ? "ring-blue-500 ring-2" : ""
 				}`}
 			>
 				<img
-					className="object-cover w-full h-full "
+					className="object-cover w-full h-full"
 					alt=""
 					src={navigationItem.image}
 				/>
