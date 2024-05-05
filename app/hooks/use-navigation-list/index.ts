@@ -2,13 +2,11 @@ import type { navigationType } from "@/app/types/navigationType";
 import { useDndMonitor } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import { nanoid } from "nanoid";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export const useNavigationList = (): [
-	typeof navigationList,
-	typeof setNavigationList,
-	typeof handleCodeEdit,
-] => {
+export const useNavigationList = (
+	isPreviewCode: boolean,
+): [typeof navigationList, typeof setNavigationList, typeof handleCodeEdit] => {
 	const [navigationList, setNavigationList] = useState<navigationType[]>([
 		{
 			id: nanoid(),
