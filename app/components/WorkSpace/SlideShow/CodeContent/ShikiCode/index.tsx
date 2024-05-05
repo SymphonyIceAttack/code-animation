@@ -21,7 +21,7 @@ const index = ({ navigationList }: Props) => {
 	}, []);
 
 	return (
-		<div className="shikiContainer">
+		<div className="shikiContainer py-1 h-[384px]">
 			{shikiHighLight !== null && navigationList.length > 0 && (
 				<ShikiMagicMove
 					className="overflow-auto"

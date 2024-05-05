@@ -6,13 +6,16 @@ import { useNavigationList } from "./hooks/use-navigation-list";
 import { usePreviewCode } from "./hooks/use-preview-code";
 export default function Home() {
 	const [isPreviewCode, setisPreviewCode] = usePreviewCode();
-	const [navigationList, setNavigationList, handleCodeEdit] =
+	const [navigationList, setNavigationList, handleCodeEdit, createnavigation] =
 		useNavigationList(isPreviewCode);
 
 	return (
 		<SortableContext items={navigationList}>
 			<main className="h-screen w-full flex">
-				<Navigation navigationList={navigationList} />
+				<Navigation
+					navigationList={navigationList}
+					createnavigation={createnavigation}
+				/>
 				<WorkSpace
 					isPreviewCode={isPreviewCode}
 					handlePreviewState={(isPreviewCode) => {

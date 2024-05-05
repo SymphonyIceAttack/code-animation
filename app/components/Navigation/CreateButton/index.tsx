@@ -1,10 +1,15 @@
 import React from "react";
-
-const CreateButton = () => {
+interface Props {
+	createnavigation: () => void;
+}
+const CreateButton = ({ createnavigation }: Props) => {
 	return (
 		<button
 			className="group cursor-pointer disabled:opacity-50 disabled:cursor-default aspect-video flex justify-center items-center h-full bg-[#1f1f1f] transition hover:bg-zinc-700 rounded-lg"
 			type="button"
+			onClick={() => {
+				createnavigation();
+			}}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
