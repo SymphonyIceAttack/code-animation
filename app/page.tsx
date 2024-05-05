@@ -6,8 +6,14 @@ import { useNavigationList } from "./hooks/use-navigation-list";
 import { usePreviewCode } from "./hooks/use-preview-code";
 export default function Home() {
 	const [isPreviewCode, setisPreviewCode] = usePreviewCode();
-	const [navigationList, setNavigationList, handleCodeEdit, createnavigation] =
-		useNavigationList(isPreviewCode);
+	const [
+		navigationList,
+		setNavigationList,
+		handleCodeEdit,
+		createnavigation,
+		deleteNavigationItem,
+		handleActiveItem,
+	] = useNavigationList(isPreviewCode);
 
 	return (
 		<SortableContext items={navigationList}>
@@ -15,6 +21,8 @@ export default function Home() {
 				<Navigation
 					navigationList={navigationList}
 					createnavigation={createnavigation}
+					deleteNavigationItem={deleteNavigationItem}
+					handleActiveItem={handleActiveItem}
 				/>
 				<WorkSpace
 					isPreviewCode={isPreviewCode}

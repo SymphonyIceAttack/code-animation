@@ -4,8 +4,14 @@ import { CSS } from "@dnd-kit/utilities";
 import React from "react";
 interface Props {
 	navigationItem: navigationType;
+	deleteNavigationItem: (id: string) => void;
+	handleActiveItem: (id: string) => void;
 }
-const NavigationItem = ({ navigationItem }: Props) => {
+const NavigationItem = ({
+	navigationItem,
+	deleteNavigationItem,
+	handleActiveItem,
+}: Props) => {
 	const { attributes, listeners, setNodeRef, transform, transition } =
 		useSortable({ id: navigationItem.id });
 	const style = {
@@ -21,7 +27,13 @@ const NavigationItem = ({ navigationItem }: Props) => {
 			{...attributes}
 			{...listeners}
 		>
-			<div className="absolute z-10 hidden group-hover:block top-1.5 right-1.5 text-white bg-zinc-600 px-2 py-1 rounded-md">
+			<div
+				onKeyDown={() => {}}
+				onClick={() => {
+					deleteNavigationItem(navigationItem.id);
+				}}
+				className="absolute z-10 hidden group-hover:block top-1.5 right-1.5 text-white bg-zinc-600 px-2 py-1 rounded-md"
+			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					width="24"
@@ -41,6 +53,10 @@ const NavigationItem = ({ navigationItem }: Props) => {
 				</svg>
 			</div>
 			<div
+				onKeyDown={() => {}}
+				onClick={() => {
+					handleActiveItem(navigationItem.id);
+				}}
 				className={`pointer-events-none bg-[#121212]  rounded-lg p-1 ${
 					navigationItem.isActive ? "ring-blue-500 ring-2" : ""
 				}`}

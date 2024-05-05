@@ -12,6 +12,8 @@ export const useNavigationList = (
 	typeof setNavigationList,
 	typeof handleCodeEdit,
 	typeof createnavigation,
+	typeof deleteNavigation,
+	typeof handleActiveItem,
 ] => {
 	const [navigationList, setNavigationList] = useState<navigationType[]>([
 		{
@@ -40,9 +42,6 @@ export const useNavigationList = (
 		},
 	]);
 	useDndMonitor({
-		onDragStart(event) {
-			handleActiveItem(event.active.id as string);
-		},
 		onDragEnd(event) {
 			const { active, over } = event;
 			if (over === null) {
@@ -62,15 +61,35 @@ export const useNavigationList = (
 		},
 	});
 
-	// TODO if delete active item and length !==0 then turn the first active
-	const deleteNavigation = () => {};
+	// if delete active item and length !==0 then turn the first active
+	const deleteNavigation = (id: string) => {
+		const deleteItem = navigationList.find((item) => item.id === id);
+		if (deleteItem === undefined) {
+			return;
+		}
+		const filterNavigationList = navigationList.filter(
+			(item) => item.id !== id,
+		);
+		if (deleteItem.isActive && navigationList.length - 1 > 0) {
+			setNavigationList(
+				filterNavigationList.map((item, index) => {
+					return {
+						...item,
+						isActive: index === 0,
+					};
+				}),
+			);
+		} else {
+			setNavigationList(filterNavigationList);
+		}
+	};
 
 	const createnavigation = () => {
 		setNavigationList([
 			...navigationList,
 			{
 				id: nanoid(),
-				isActive: false,
+				isActive: navigationList.length === 0,
 				code: "",
 				image: dataImage,
 				index: navigationList.length + 1,
@@ -129,5 +148,12 @@ export const useNavigationList = (
 		};
 	}, [keyDown]);
 
-	return [navigationList, setNavigationList, handleCodeEdit, createnavigation];
+	return [
+		navigationList,
+		setNavigationList,
+		handleCodeEdit,
+		createnavigation,
+		deleteNavigation,
+		handleActiveItem,
+	];
 };
