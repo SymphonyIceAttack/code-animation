@@ -19,6 +19,7 @@ export default function Home() {
 		<SortableContext items={navigationList}>
 			<main className="h-screen w-full flex">
 				<Navigation
+					isPreviewCode={isPreviewCode}
 					navigationList={navigationList}
 					createnavigation={createnavigation}
 					deleteNavigationItem={deleteNavigationItem}
