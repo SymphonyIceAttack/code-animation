@@ -4,7 +4,7 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"ignore": ["node_modules", "public"]
+		"ignore": ["node_modules", "public", ".npmrc"]
 	},
 	"organizeImports": {
 		"enabled": true

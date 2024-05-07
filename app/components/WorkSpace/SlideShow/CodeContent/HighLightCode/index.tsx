@@ -1,3 +1,4 @@
+import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
 import type { navigationType } from "@/app/types/navigationType";
 import { langs } from "@uiw/codemirror-extensions-langs";
 import { dracula, draculaInit } from "@uiw/codemirror-theme-dracula";
@@ -6,8 +7,13 @@ import React from "react";
 interface Props {
 	navigationList: navigationType[];
 	handleCodeEdit: (code: string) => void;
+	mutiLanguage: LanguageOptionType;
 }
-const HighLightCode = ({ navigationList, handleCodeEdit }: Props) => {
+const HighLightCode = ({
+	navigationList,
+	handleCodeEdit,
+	mutiLanguage,
+}: Props) => {
 	return (
 		<>
 			{navigationList.length !== 0 && (
@@ -44,7 +50,7 @@ const HighLightCode = ({ navigationList, handleCodeEdit }: Props) => {
 						navigationList.filter((item) => item.isActive === true)[0].code
 					}
 					height="384px"
-					extensions={[langs.tsx()]}
+					extensions={[mutiLanguage.highLightExtension]}
 				/>
 			)}
 		</>
