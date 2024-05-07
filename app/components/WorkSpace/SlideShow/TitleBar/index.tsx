@@ -1,6 +1,15 @@
+import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
+import { mutiLanguageList } from "@/app/hooks/use-muti-language/muti-language-list";
+import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import React from "react";
+import type { BundledLanguage } from "shiki";
 
-const TitleBar = () => {
+interface Props {
+	mutiLanguage: LanguageOptionType;
+	handleSelectMutiLanguage: (shikiHighLight: BundledLanguage) => void;
+}
+
+const TitleBar = ({ mutiLanguage, handleSelectMutiLanguage }: Props) => {
 	return (
 		<div className="relative flex items-center justify-center px-2 py-4">
 			<div className="absolute left-0 p-4 flex gap-2">
@@ -17,28 +26,25 @@ const TitleBar = () => {
 					2x
 				</button>
 			</div>
-			<div className="inline-flex items-center gap-x-1.5 rounded-md px-2 py-1 text-xs font-medium text-gray-400 ring-gray-800">
-				<div className="relative">
-					<svg
-						className="absolute left-[-10px] h-1.5 w-1.5 fill-blue-500"
-						style={{
-							left: "42.3046px",
-							top: "50%",
-							transform: "translateY(-50%)",
-						}}
-						viewBox="0 0 6 6"
-						aria-hidden="true"
-					>
-						<circle cx="3" cy="3" r="3" />
-					</svg>
-					<input
-						tabIndex={-1}
-						onChange={() => {}}
-						className="bg-transparent focus:border-none focus:outline-none text-center pl-4"
-						type="text"
-						value="code.tsx"
-					/>
-				</div>
+			<div className="flex items-center gap-x-1.5 w-48">
+				<Select
+					isRequired
+					label="Select an Language"
+					className="max-w-xs"
+					placeholder="Current Language"
+					selectedKeys={[mutiLanguage.shikiHighLight]}
+					defaultSelectedKeys={[mutiLanguageList[0].shikiHighLight]}
+					onChange={(e) => {
+						handleSelectMutiLanguage(e.target.value as BundledLanguage);
+					}}
+				>
+					{mutiLanguageList.map((lang) => (
+						<SelectItem key={lang.shikiHighLight} value={lang.shikiHighLight}>
+							{lang.shikiHighLight}
+						</SelectItem>
+					))}
+				</Select>
+
 				<div className="absolute right-6 inset-y-0 flex items-center gap-3 text-zinc-700">
 					<svg
 						xmlns="http://www.w3.org/2000/svg"

@@ -2,6 +2,7 @@
 import { SortableContext } from "@dnd-kit/sortable";
 import Navigation from "./components/Navigation";
 import WorkSpace from "./components/WorkSpace";
+import { useMutiLanguage } from "./hooks/use-muti-language";
 import { useNavigationList } from "./hooks/use-navigation-list";
 import { usePreviewCode } from "./hooks/use-preview-code";
 export default function Home() {
@@ -15,6 +16,8 @@ export default function Home() {
 		handleActiveItem,
 	] = useNavigationList(isPreviewCode);
 
+	const [mutiLanguage, handleSelectMutiLanguage] = useMutiLanguage();
+
 	return (
 		<SortableContext items={navigationList}>
 			<main className="h-screen w-full flex">
@@ -26,6 +29,8 @@ export default function Home() {
 					handleActiveItem={handleActiveItem}
 				/>
 				<WorkSpace
+					mutiLanguage={mutiLanguage}
+					handleSelectMutiLanguage={handleSelectMutiLanguage}
 					isPreviewCode={isPreviewCode}
 					handlePreviewState={(isPreviewCode) => {
 						setisPreviewCode(isPreviewCode);

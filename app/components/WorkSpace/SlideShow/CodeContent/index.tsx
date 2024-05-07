@@ -1,3 +1,4 @@
+import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
 import type { navigationType } from "@/app/types/navigationType";
 import dynamic from "next/dynamic";
 import React from "react";
@@ -8,21 +9,27 @@ interface Props {
 	handleCodeEdit: (code: string) => void;
 	navigationList: navigationType[];
 	isPreviewCode: boolean;
+	mutiLanguage: LanguageOptionType;
 }
 const CodeContent = ({
 	handleCodeEdit,
 	navigationList,
 	isPreviewCode,
+	mutiLanguage,
 }: Props) => {
 	return (
 		<div className="relative aspect-video p-4">
 			{isPreviewCode ? (
 				<>
-					<ShikiCode navigationList={navigationList} />
+					<ShikiCode
+						mutiLanguage={mutiLanguage}
+						navigationList={navigationList}
+					/>
 					<HintArrow />
 				</>
 			) : (
 				<HighLightCode
+					mutiLanguage={mutiLanguage}
 					navigationList={navigationList}
 					handleCodeEdit={handleCodeEdit}
 				/>
