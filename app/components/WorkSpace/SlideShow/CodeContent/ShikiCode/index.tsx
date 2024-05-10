@@ -1,4 +1,5 @@
 import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
+import { mutiLanguageList } from "@/app/hooks/use-muti-language/muti-language-list";
 import type { navigationType } from "@/app/types/navigationType";
 import React, { useEffect, useState } from "react";
 import { bundledThemes, getHighlighter } from "shiki";

@@ -1,5 +1,6 @@
 import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
 import { mutiLanguageList } from "@/app/hooks/use-muti-language/muti-language-list";
+import { usePreviewStore } from "@/app/providers/perview-store-provider";
 import { Select, SelectItem, SelectSection } from "@nextui-org/react";
 import React from "react";
 import type { BundledLanguage } from "shiki";
@@ -10,8 +11,16 @@ interface Props {
 }
 
 const TitleBar = ({ mutiLanguage, handleSelectMutiLanguage }: Props) => {
+	const isPreviewMode = usePreviewStore((state) => state.isPreviewMode);
 	return (
-		<div className="relative flex items-center justify-center px-2 py-4">
+		<div
+			className={"relative flex items-center justify-center transition-all"}
+			style={{
+				height: isPreviewMode ? "0px" : "",
+				padding: isPreviewMode ? "0px" : "1rem 0.5rem",
+				overflow: isPreviewMode ? "hidden" : "",
+			}}
+		>
 			<div className="absolute left-0 p-4 flex gap-2">
 				<button
 					className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-zinc-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 hover:bg-zinc-700 w-8 h-8 border border-zinc-700 text-zinc-300 text-xs bg-zinc-800"

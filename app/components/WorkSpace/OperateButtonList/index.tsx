@@ -1,15 +1,16 @@
+import { usePreviewStore } from "@/app/providers/perview-store-provider";
 import React from "react";
-interface Props {
-	handlePreviewState: (isPreviewCode: boolean) => void;
-	isPreviewCode: boolean;
-}
-const OperateButtonList = ({ handlePreviewState, isPreviewCode }: Props) => {
+
+const OperateButtonList = () => {
+	const { isPreviewMode, openPreviewMode, closePriviewMode } = usePreviewStore(
+		(state) => state,
+	);
 	return (
 		<div className="mx-auto p-4 flex gap-4 bg-zinc-900 rounded-lg drop-shadow-xl">
-			{isPreviewCode ? (
+			{isPreviewMode ? (
 				<button
 					onClick={() => {
-						handlePreviewState(false);
+						closePriviewMode();
 					}}
 					className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-zinc-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2 bg-blue-900/50 hover:bg-blue-900/60 border border-blue-900 text-blue-300 text-xs h-8"
 					type="button"
@@ -19,7 +20,7 @@ const OperateButtonList = ({ handlePreviewState, isPreviewCode }: Props) => {
 			) : (
 				<button
 					onClick={() => {
-						handlePreviewState(true);
+						openPreviewMode();
 					}}
 					className="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-zinc-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2 bg-blue-900/50 hover:bg-blue-900/60 border border-blue-900 text-blue-300 text-xs h-8"
 					type="button"
