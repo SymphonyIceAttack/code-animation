@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "shiki-magic-move/style.css";
-import DndContextProvider from "./ContextProvider/DndContextProvider";
-import { NextUIProvider } from "./ContextProvider/NextUIProvider";
 import "./globals.css";
+import DndContextProvider from "./providers/dnd-context-provider";
+import { NextUIProvider } from "./providers/next-ui-provider";
+import { PreviewStoreProvider } from "./providers/perview-store-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -19,9 +20,11 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="dark">
 			<body className={inter.className}>
-				<NextUIProvider>
-					<DndContextProvider>{children}</DndContextProvider>
-				</NextUIProvider>
+				<PreviewStoreProvider>
+					<NextUIProvider>
+						<DndContextProvider>{children}</DndContextProvider>
+					</NextUIProvider>
+				</PreviewStoreProvider>
 			</body>
 		</html>
 	);

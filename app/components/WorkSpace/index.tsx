@@ -8,16 +8,12 @@ import SlideShow from "./SlideShow";
 interface Props {
 	handleCodeEdit: (code: string) => void;
 	navigationList: navigationType[];
-	isPreviewCode: boolean;
-	handlePreviewState: (isPreviewCode: boolean) => void;
 	mutiLanguage: LanguageOptionType;
 	handleSelectMutiLanguage: (shikiHighLight: BundledLanguage) => void;
 }
 const WorkSpace = ({
 	handleCodeEdit,
 	navigationList,
-	isPreviewCode,
-	handlePreviewState,
 	mutiLanguage,
 	handleSelectMutiLanguage,
 }: Props) => {
@@ -27,14 +23,10 @@ const WorkSpace = ({
 				<SlideShow
 					mutiLanguage={mutiLanguage}
 					handleSelectMutiLanguage={handleSelectMutiLanguage}
-					isPreviewCode={isPreviewCode}
 					navigationList={navigationList}
 					handleCodeEdit={handleCodeEdit}
 				/>
-				<OperateButtonList
-					isPreviewCode={isPreviewCode}
-					handlePreviewState={handlePreviewState}
-				/>
+				<OperateButtonList />
 			</div>
 		</div>
 	);

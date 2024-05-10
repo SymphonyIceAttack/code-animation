@@ -24,7 +24,8 @@
 		"react": "^18",
 		"react-dom": "^18",
 		"shiki": "^1.4.0",
-		"shiki-magic-move": "^0.3.7"
+		"shiki-magic-move": "^0.3.7",
+		"zustand": "^4.5.2"
 	},
 	"devDependencies": {
 		"@types/node": "^20",
