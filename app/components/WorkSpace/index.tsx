@@ -1,5 +1,4 @@
 import type { LanguageOptionType } from "@/app/hooks/use-muti-language";
-import { usePreviewCode } from "@/app/hooks/use-preview-code";
 import type { navigationType } from "@/app/types/navigationType";
 import React from "react";
 import type { BundledLanguage } from "shiki";

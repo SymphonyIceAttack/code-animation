@@ -4,8 +4,6 @@ import Navigation from "./components/Navigation";
 import WorkSpace from "./components/WorkSpace";
 import { useMutiLanguage } from "./hooks/use-muti-language";
 import { useNavigationList } from "./hooks/use-navigation-list";
-import { usePreviewCode } from "./hooks/use-preview-code";
-import { usePreviewStore } from "./providers/perview-store-provider";
 export default function Home() {
 	const [
 		navigationList,
