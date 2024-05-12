@@ -67,9 +67,9 @@ export const useNavigationList = (): [
 		if (deleteItem === undefined) {
 			return;
 		}
-		const filterNavigationList = navigationList.filter(
-			(item) => item.id !== id,
-		);
+		const filterNavigationList = navigationList
+			.filter((item) => item.id !== id)
+			.map((item, index) => ({ ...item, index: index + 1 }));
 		if (deleteItem.isActive && navigationList.length - 1 > 0) {
 			setNavigationList(
 				filterNavigationList.map((item, index) => {
